@@ -1,5 +1,5 @@
 <?php 
-
+ namespace Lib\Security;
  class security {
       public static function render($veri,$md5 = false)
       {

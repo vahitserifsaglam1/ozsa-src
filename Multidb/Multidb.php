@@ -15,20 +15,18 @@ Class Multidb
         switch ($dataType)
         {
             case 'PDO':
-                
-                $db = new PDO("mysql:host=$host;dbname=$dbname",$username,$password);
-
+                $db = new \PDO("mysql:host=$host;dbname=$dbname",$username,$password);
                 break;
             case 'sqlite':
-                include $appPath."extras/class/sqlite.php";
-                $db = sqlite($dbname,0666,true);
+                    include $appPath."extras/class/mysql/sqlite.php";
+                $db = new \sqlite($dbname,0666,true);
                 break;
             case 'mysqli':
-                $db = new mysqli($host,$username,$password);
+                $db = new \mysqli($host,$username,$password);
                 break;
             case 'mysql':
-                include $appPath."xtras/class/mysql.php";
-                $db = new mysql($host,$dbname,$username,$password);
+                include $appPath."extras/class/mysql/mysql.php";
+                $db = new \mysql($host,$dbname,$username,$password);
                 break;
         }
         $this->db = $db;
